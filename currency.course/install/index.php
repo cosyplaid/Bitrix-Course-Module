@@ -44,17 +44,24 @@ class currency_course extends CModule
         $connection = Application::getConnection();
         $sqlHelper = $connection->getSqlHelper();
 
-        // Создаём таблицу, если не существует
         if (!$connection->isTableExists('b_currency_course'))
         {
+            // Создаём таблицу, если не существует
             $connection->queryExecute("
                 CREATE TABLE b_currency_course (
                     ID INT(11) NOT NULL AUTO_INCREMENT,
-                    CODE VARCHAR(3) NOT NULL,
+                    CODE VARCHAR(3) NOT NULL DEFAULT 'USD',
                     DATE DATETIME NOT NULL,
-                    COURSE FLOAT NOT NULL,
+                    COURSE FLOAT NOT NULL DEFAULT 70,
                     PRIMARY KEY (ID)
                 ) ENGINE=InnoDB DEFAULT CHARSET=utf8
+            ");
+
+            // Вставляем тестовые данные
+            $connection->queryExecute("
+                INSERT INTO b_currency_course (CODE, DATE, COURSE) VALUES
+                    ('USD', '2025-09-01 00:00:00', 75.50),
+                    ('EUR', '2025-09-01 00:00:00', 85.30)
             ");
         }
     }

@@ -23,6 +23,17 @@
     </table>
 
     <div style="margin-top: 15px;">
-        <?= $arResult['NAV_STRING'] ?>
+        <?php
+        global $APPLICATION;
+        $APPLICATION->IncludeComponent(
+            "bitrix:main.pagenavigation",
+            "",
+            [
+                "NAV_OBJECT" => $arResult['NAV_OBJECT'],
+                "SEF_MODE" => "N"
+            ],
+            false
+        );
+        ?>
     </div>
 <?php endif; ?>

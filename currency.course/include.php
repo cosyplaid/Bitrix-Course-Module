@@ -4,6 +4,6 @@ use Bitrix\Main\Loader;
 Loader::registerAutoLoadClasses(
     "currency.course",
     [
-        "Currency\\Course\\CoursesTable" => "lib/coursestable.php",
+        "Currency\\Course\\CoursesTable" => "lib/CoursesTable.php",
     ]
 );

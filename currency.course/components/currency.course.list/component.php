@@ -5,6 +5,11 @@ use Bitrix\Main\Application;
 use Bitrix\Main\UI\PageNavigation;
 use Currency\Course\CoursesTable; // ORM-сущность вашего модуля
 
+if (!\Bitrix\Main\Loader::includeModule('currency.course')) {
+    ShowError('Модуль currency.course не установлен');
+    return;
+}
+
 $request = Application::getInstance()->getContext()->getRequest();
 
 // Параметры компонента с дефолтами
@@ -58,12 +63,6 @@ while ($item = $rsData->fetch())
 }
 
 $arResult['NAV_OBJECT'] = $nav;
-$arResult['NAV_STRING'] = $nav->getPageNavStringEx(
-    $nav->getId(),
-    '',
-    'modern',
-    false
-);
 
 $arResult['COLUMNS'] = $arParams['COLUMNS'];
 $arResult['FILTER'] = $arParams['FILTER'];
