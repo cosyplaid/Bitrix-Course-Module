@@ -4,7 +4,6 @@ namespace Currency\Course;
 use Bitrix\Main\Entity;
 use Bitrix\Main\Type\DateTime;
 
-asdasdasdasd
 class CoursesTable extends Entity\DataManager
 {
     public static function getTableName()

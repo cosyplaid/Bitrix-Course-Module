@@ -19,10 +19,12 @@
     </div>
     <div>
         <label>Код валюты:</label>
-        <input type="text" name="CODE" value="<?= htmlspecialcharsbx($arResult['FILTER']['CODE']) ?>" maxlength="3" style="text-transform: uppercase;">
+        <input type="text" name="CODE" value="<?= htmlspecialcharsbx($arResult['FILTER']['CODE']) ?>"
+               maxlength="3" style="text-transform: uppercase;">
     </div>
     <div>
         <input type="submit" value="Фильтровать">
-        <input type="reset" onclick="window.location='<?= htmlspecialcharsbx($APPLICATION->GetCurPage()) ?>';" value="Сбросить">
+        <input type="reset" onclick="window.location='<?= htmlspecialcharsbx($APPLICATION->GetCurPage()) ?>';"
+               value="Сбросить">
     </div>
 </form>

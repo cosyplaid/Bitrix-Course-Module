@@ -12,6 +12,13 @@ if (!\Bitrix\Main\Loader::includeModule('currency.course')) {
 
 $request = Application::getInstance()->getContext()->getRequest();
 
+// вместо $request = …, смотрим только arParams:
+$filterParams = $arParams['FILTER'];
+
+// строим $filter[] из $filterParams
+if (!empty($filterParams['DATE_FROM']))
+    $filter['>=DATE'] = new \Bitrix\Main\Type\DateTime($filterParams['DATE_FROM']);
+
 // Параметры компонента с дефолтами
 $arParams['FILTER'] = $arParams['FILTER'] ?? [];
 $arParams['COLUMNS'] = $arParams['COLUMNS'] ?? ['ID', 'CODE', 'DATE', 'COURSE'];
