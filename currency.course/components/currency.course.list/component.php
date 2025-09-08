@@ -3,16 +3,14 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) die();
 
 use Bitrix\Main\Application;
 use Bitrix\Main\UI\PageNavigation;
-use Currency\Course\CoursesTable; // ORM-сущность вашего модуля
+use Currency\Course\CoursesTable;
 
 if (!\Bitrix\Main\Loader::includeModule('currency.course')) {
     ShowError('Модуль currency.course не установлен');
     return;
 }
 
-$request = Application::getInstance()->getContext()->getRequest();
-
-// вместо $request = …, смотрим только arParams:
+//$request = Application::getInstance()->getContext()->getRequest();
 $filterParams = $arParams['FILTER'];
 
 // строим $filter[] из $filterParams
