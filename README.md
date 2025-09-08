@@ -14,7 +14,7 @@
 
 ### Вставьте код фильтра и списка на страницу
 
-![screenshot](README/Usage.png)
+![screenshot](documentation/Usage.png)
  
 ### Результат
 
